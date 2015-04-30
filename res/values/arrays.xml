@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="regions_list">
+        <item >Midatlantic</item>
+        <item >Midwest</item>
+        <item >Mountain_West</item>
+        <item >New_England</item>
+        <item >Pacific_West</item>
+        <item >South</item>
+    </string-array>
+    <string-array name="regions_list_for_settings">
+        <item >Midatlantic</item>
+        <item >Midwest</item>
+        <item >Mountain_West</item>
+        <item >New_England</item>
+        <item >Pacific_West</item>
+        <item >South</item>
+    </string-array>
+    <string-array name="guesses_list">
+        <item >3</item>
+        <item >6</item>
+        <item >9</item>
+    </string-array>
+    
+</resources>
