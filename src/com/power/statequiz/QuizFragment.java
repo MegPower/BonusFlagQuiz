@@ -217,7 +217,7 @@ public class QuizFragment extends Fragment
 	      getResources().getString(R.string.question, 
 	         (correctAnswers + 1), STATES_IN_QUIZ));
 	   
-	   String region = nextImage.substring(0, nextImage.indexOf('_'));
+	   String region = nextImage.substring(0, nextImage.indexOf('-'));
 
 	   // use AssetManager to load next image from assets folder
 	   AssetManager assets = getActivity().getAssets(); 
@@ -226,7 +226,7 @@ public class QuizFragment extends Fragment
 	   {
 	      // get an InputStream to the asset representing the next flag
 	      InputStream stream = 
-	         assets.open("states/" + nextImage + ".jpg");
+	         assets.open(region + "/" + nextImage + ".jpg");
 	      
 	      // load the asset as a Drawable and display on the flagImageView
 	      Drawable flag = Drawable.createFromStream(stream, nextImage);

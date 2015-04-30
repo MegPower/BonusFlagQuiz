@@ -3,17 +3,17 @@
     <string-array name="regions_list">
         <item >Midatlantic</item>
         <item >Midwest</item>
-        <item >Mountain_West</item>
-        <item >New_England</item>
-        <item >Pacific_West</item>
+        <item >MountainWest</item>
+        <item >NewEngland</item>
+        <item >PacificWest</item>
         <item >South</item>
     </string-array>
     <string-array name="regions_list_for_settings">
         <item >Midatlantic</item>
         <item >Midwest</item>
-        <item >Mountain_West</item>
-        <item >New_England</item>
-        <item >Pacific_West</item>
+        <item >MountainWest</item>
+        <item >NewEngland</item>
+        <item >PacificWest</item>
         <item >South</item>
     </string-array>
     <string-array name="guesses_list">
