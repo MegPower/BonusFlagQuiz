@@ -134,5 +134,34 @@
         android:gravity="center_horizontal"
         android:textSize="@dimen/answer_size"
         android:textStyle="bold" />
+    
+        <LinearLayout
+        android:id="@+id/row4LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing"
+        android:orientation="horizontal"
+        android:visibility="invisible" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/guess_cap"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+    
 
 </LinearLayout>

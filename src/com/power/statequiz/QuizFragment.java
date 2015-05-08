@@ -20,6 +20,8 @@ import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +29,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Button;
@@ -79,6 +82,10 @@ public class QuizFragment extends Fragment
 	private LinearLayout[] guessLinearLayouts;
 	//displays correct! or incorrect!
 	private TextView answerTextView;
+	//correct cap
+	private String correctCap;
+	//submitted cap
+	private String subCap;
 	
 	//configures QuizFragment when view is created
 	@Override
@@ -105,6 +112,9 @@ public class QuizFragment extends Fragment
 		guessLinearLayouts[1] = (LinearLayout) view.findViewById(R.id.row2LinearLayout);
 		guessLinearLayouts[2] = (LinearLayout) view.findViewById(R.id.row3LinearLayout);
 		answerTextView = (TextView) view.findViewById(R.id.answerTextView);
+
+		EditText editText1 = (EditText) view.findViewById(R.id.editText1);
+		editText1.addTextChangedListener(editTextWatcher);
 		
 		//configure listeners for the guess btns
 		for (LinearLayout row : guessLinearLayouts)
@@ -218,6 +228,7 @@ public class QuizFragment extends Fragment
 	         (correctAnswers + 1), STATES_IN_QUIZ));
 	   
 	   String region = nextImage.substring(0, nextImage.indexOf('-'));
+	   String capital = nextImage.substring(nextImage.indexOf('+'), nextImage.indexOf('.'));
 
 	   // use AssetManager to load next image from assets folder
 	   AssetManager assets = getActivity().getAssets(); 
@@ -226,7 +237,7 @@ public class QuizFragment extends Fragment
 	   {
 	      // get an InputStream to the asset representing the next flag
 	      InputStream stream = 
-	         assets.open(region + "/" + nextImage + ".jpg");
+	         assets.open(region + "/" + nextImage + "+" + capital + ".jpg");
 	      
 	      // load the asset as a Drawable and display on the flagImageView
 	      Drawable flag = Drawable.createFromStream(stream, nextImage);
@@ -276,6 +287,31 @@ public class QuizFragment extends Fragment
 		return cleanName;
 	}
 	
+	private String getStateCap(String name)
+	{
+		String cleanName = name.substring(name.indexOf('+') + 1).replace('-', ' ');
+		return cleanName;
+	}
+	
+	private TextWatcher editTextWatcher = new TextWatcher()
+	{
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count)
+		{
+			subCap = s.toString();
+		}
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count,
+				int after) {
+		}
+
+		@Override
+		public void afterTextChanged(Editable s) {
+		}
+	};
+
+	
 	//called when a guess btn is touched
 	private OnClickListener guessButtonListener = new OnClickListener()
 	{
@@ -310,6 +346,13 @@ public class QuizFragment extends Fragment
 				
 				//turn off all buttons
 				disableButtons();
+				
+				//ask about capital 
+				//make layout visible
+				guessLinearLayouts[3].setVisibility(View.VISIBLE);
+				correctCap = getStateCap(correctAnswer);
+				if(subCap.equals(correctCap))
+					totalPoints = totalPoints + 10;
 				
 				//if user has correctly identified STATES_IN_QUIZ flags
 				if (correctAnswers == STATES_IN_QUIZ)

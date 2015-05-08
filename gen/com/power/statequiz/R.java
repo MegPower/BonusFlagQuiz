@@ -39,7 +39,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f0c0013;
+        public static final int action_settings=0x7f0c0016;
         public static final int answerTextView=0x7f0c0012;
         public static final int button1=0x7f0c0007;
         public static final int button2=0x7f0c0008;
@@ -50,6 +50,7 @@ public final class R {
         public static final int button7=0x7f0c000f;
         public static final int button8=0x7f0c0010;
         public static final int button9=0x7f0c0011;
+        public static final int editText1=0x7f0c0014;
         public static final int flagImageView=0x7f0c0004;
         public static final int fragment1=0x7f0c0002;
         public static final int guessCountryTextView=0x7f0c0005;
@@ -58,7 +59,9 @@ public final class R {
         public static final int row1LinearLayout=0x7f0c0006;
         public static final int row2LinearLayout=0x7f0c000a;
         public static final int row3LinearLayout=0x7f0c000e;
+        public static final int row4LinearLayout=0x7f0c0013;
         public static final int settingsFragment=0x7f0c0001;
+        public static final int textView1=0x7f0c0015;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -74,6 +77,7 @@ public final class R {
         public static final int default_region=0x7f090011;
         public static final int default_region_message=0x7f09000b;
         public static final int first_guesses=0x7f090012;
+        public static final int guess_cap=0x7f090014;
         public static final int guess_country=0x7f090008;
         public static final int hello_world=0x7f090001;
         public static final int image_description=0x7f090010;
